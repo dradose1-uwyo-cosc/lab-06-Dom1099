@@ -1,8 +1,8 @@
-# Your Name Here
+# Dominick Larson
 # UWYO COSC 1010
-# Submission Date
+# Submission Date:10/20/24
 # Lab 06
-# Lab Section: 
+# Lab Section: 14
 # Sources, people worked with, help given to: 
 # your
 # comments
@@ -70,7 +70,14 @@ print(len(random_string)) # Print out the size for reference
 # Output which letter occurred the most 
 # Output which letter occurred the least 
 # Output what the percentage of the string each character is, again in alphabetical
+occ = {}
 
+for i in sorted(random_string):
+    if i in occ:
+        occ[i]+=1
+    else: 
+        occ[i]=1
+print (occ)
 #Tips and trick:
 # You can iterate through strings like you would a list
 # All characters are lowercase 
@@ -87,14 +94,17 @@ print(len(random_string)) # Print out the size for reference
 
 print("*"*75)
 # Output which letter occurred the most 
-
-most_occurred = ""
-least_occurred = ""
+biggest = max(occ, key=occ.get)
+least = min(occ, key=occ.get)
+most_occurred = biggest
+least_occurred = least
 
 print(f"The letter that occurred the most is {most_occurred}")
 print("*"*75)
 # Output which letter occurred the least 
 print(f"The letter that occurred the most is {least_occurred}")
 print("*"*75)
-
+for input, output in occ.items():
+    percent = (output / len(occ))
+    print(f"{input}: {percent}%")
 # Output what the percentage of the string each character is, again in alphabetical
